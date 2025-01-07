@@ -8,7 +8,7 @@ import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: "/devops/", //配置github pages的访问地址
+  base: "/devops-page/", //配置github pages的访问地址
   resolve: {
     // 支持alias别名@
     alias: {

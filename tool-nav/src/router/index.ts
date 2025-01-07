@@ -4,10 +4,11 @@ import { createRouter, createWebHistory } from "vue-router"
 // 导入路由页面的配置
 import routes from './routes'
 
+const baseUrl = "/devops-page/"
 // 路由参数配置
 const router = createRouter({
     // 使用hash（createWebHashHistory）模式，（createWebHistory是HTML5历史模式，支持SEO）
-    history: createWebHistory(),
+    history: createWebHistory(baseUrl),
     routes: routes,
 })
 

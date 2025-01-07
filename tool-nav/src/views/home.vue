@@ -27,7 +27,7 @@
         <!-- 图标 -->
         <div>
           <img
-            :src="child.imgUrl"
+            :src="getAssetsFile(child.imgUrl)"
             width="50px"
             height="50px"
             style="border-radius: 50%"
@@ -57,7 +57,7 @@
 import { reactive, ref, unref, nextTick, handleError, computed } from "vue";
 import { ClickOutside as vClickOutside } from "element-plus";
 import { cateList } from "@/enums/cateList.js";
-
+import { getAssetsFile } from "../utils/pub-use";
 const hidePopover = ref(false);
 const cardRefs = ref([]);
 const cardRef = ref();
