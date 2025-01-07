@@ -74,9 +74,9 @@ import {
   StarFilled,
   Place,
 } from "@element-plus/icons-vue";
-import { useExpandStore } from "@/store/index";
+import { useExpandStore } from "@/store/index.js";
 import { storeToRefs } from "pinia";
-import router from "@/router/index";
+import router from "@/router/index.js";
 
 const { isExpand } = storeToRefs(useExpandStore());
 const menuList = reactive([
