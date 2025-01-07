@@ -22,13 +22,21 @@
       @select="handleSelect"
     >
       <template v-for="item in menuList" :key="item.index">
-        <el-sub-menu v-if="item.children" :index="item.index">
+        <el-sub-menu
+          v-if="item.children"
+          :index="item.index"
+          @click="handleClick(item.name)"
+        >
           <template #title>
             <el-icon><component :is="item.icon"></component></el-icon>
             <span>{{ item.name }}</span>
           </template>
           <template v-for="child in item.children" :key="child.index">
-            <el-sub-menu :index="child.index">
+            <el-menu-item :index="child.index">
+              <!-- <el-icon> <component :is="child.icon"></component> </el-icon> -->
+              <template #title> {{ child.groupName }} </template>
+            </el-menu-item>
+            <!-- <el-sub-menu :index="child.index">
               <template #title
                 ><span>{{ child.groupName }}</span></template
               >
@@ -38,11 +46,15 @@
                 :index="k.index"
                 >{{ k.name }}</el-menu-item
               >
-            </el-sub-menu>
+            </el-sub-menu> -->
           </template>
         </el-sub-menu>
 
-        <el-menu-item v-else :index="item.index">
+        <el-menu-item
+          v-else
+          :index="item.index"
+          @click="handleClick(item.name)"
+        >
           <el-icon> <component :is="item.icon"></component> </el-icon>
           <template #title> {{ item.name }} </template>
         </el-menu-item>
@@ -64,6 +76,7 @@ import {
 } from "@element-plus/icons-vue";
 import { useExpandStore } from "@/store/index";
 import { storeToRefs } from "pinia";
+import router from "@/router/index";
 
 const { isExpand } = storeToRefs(useExpandStore());
 const menuList = reactive([
@@ -96,29 +109,30 @@ const menuList = reactive([
     index: "文档教程",
     icon: markRaw(Notebook),
     name: "文档教程",
+    children: [
+      {
+        index: "开发者资源站",
+        groupName: "开发者资源站",
+      },
+      {
+        index: "编码规范文档",
+        groupName: "编码规范文档",
+      },
+      {
+        index: "devops规范文档",
+        groupName: "devops规范文档",
+      },
+      {
+        index: "常用镜像站配置文档",
+        groupName: "常用镜像站配置文档",
+      },
+    ],
   },
   {
     index: "关于本站",
     icon: markRaw(Place),
     name: "关于本站",
   },
-  // {
-  //   index: "1",
-  //   icon: markRaw(Location),
-  //   name: "代码数量统计工具",
-  //   children: [
-  //     {
-  //       index: "1-1",
-  //       groupName: "分类1",
-  //       children: [
-  //         {
-  //           index: "sonar",
-  //           name: "sonar",
-  //         },
-  //       ],
-  //     },
-  //   ],
-  // },
 ]);
 
 const handleSelect = (index: any, name: any) => {
@@ -126,6 +140,14 @@ const handleSelect = (index: any, name: any) => {
   const anchor = document.getElementById(index);
   if (anchor) {
     anchor.scrollIntoView({ behavior: "smooth" }); //跳转到指定的位置
+  }
+};
+// 点击关于本站跳转
+const handleClick = (name: string) => {
+  if (name === "关于本站") {
+    router.push("/aboutme");
+  } else {
+    router.push("/site");
   }
 };
 </script>

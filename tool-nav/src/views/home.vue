@@ -17,6 +17,7 @@
         :key="child.name"
         ref="cardRefs"
         class="card"
+        :id="child.name"
         shadow="hover"
         body-style="width:100%;display:flex;padding:10px"
         @mouseenter="handleMouseEnter(groupIndex, childIndex)"
@@ -46,8 +47,8 @@
     :virtual-ref="cardRef"
     :visible="hidePopover"
     virtual-triggering
-    width="200"
     :content="cateList[group].children[child].url"
+    popper-style="width:auto;font-weight:600;"
   >
   </el-popover>
 </template>
