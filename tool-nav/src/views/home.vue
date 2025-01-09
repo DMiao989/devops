@@ -56,7 +56,7 @@
 <script setup>
 import { reactive, ref, unref, nextTick, handleError, computed } from "vue";
 import { ClickOutside as vClickOutside } from "element-plus";
-import { cateList } from "@/enums/cateList.js";
+import { cateList } from "@/enums/cate-list.js";
 import { getAssetsFile } from "../utils/pub-use";
 const hidePopover = ref(false);
 const cardRefs = ref([]);

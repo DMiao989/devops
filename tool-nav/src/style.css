@@ -9,11 +9,11 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
+/* a {
   font-weight: 500;
   color: black !important;
   text-decoration: inherit;
-}
+} */
 
 
 * {

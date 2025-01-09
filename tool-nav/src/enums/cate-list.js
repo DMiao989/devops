@@ -1,7 +1,7 @@
 
 export const cateList = [
     {
-        id: "运维站点",
+        id: "operation-site",
         name: "运维站点",
         children: [
             {
@@ -60,7 +60,7 @@ export const cateList = [
         ],
     },
     {
-        id: "测试环境",
+        id: "test-environment",
         name: "测试环境",
         children: [
             {
@@ -102,7 +102,7 @@ export const cateList = [
         ],
     },
     {
-        id: "演示环境",
+        id: "presentation-environment",
         name: "演示环境",
         children: [
             {
@@ -121,7 +121,7 @@ export const cateList = [
         ],
     },
     {
-        id: "虚拟化平台",
+        id: "virtualization-platform",
         name: "虚拟化平台",
         children: [
             {
@@ -152,7 +152,7 @@ export const cateList = [
         ],
     },
     {
-        id: "常用站点",
+        id: "common-site",
         name: "常用站点",
         children: [
             {
@@ -194,36 +194,36 @@ export const cateList = [
 
         ],
     },
-    {
-        id: "文档教程",
-        name: "文档教程",
-        children: [
-            {
-                imgUrl: "devopsResorce.png",
-                name: "开发者资源站",
-                des: "开发者资源站",
-                url: "https://hsm-os.pages.hollysys.net/docs/",
-            },
-            {
-                imgUrl: "docs.jpeg",
-                name: "编码规范文档",
-                des: "编码规范文档",
-                url: "https://hsm-os.pages.hollysys.net/hsm-spec/code-style-guide",
-            },
-            {
-                imgUrl: "devops.jpeg",
-                name: "devops规范文档",
-                des: "devops规范文档",
-                url: "https://hsm-os.pages.hollysys.net/hsm-spec/devops-spec",
-            },
-            {
-                imgUrl: "set.jpeg",
-                name: "常用镜像站配置文档",
-                des: "常用镜像站配置文档",
-                url: "https://hsm-os.pages.hollysys.net/hsm-spec/devops-spec/devops/mirrors.html",
-            }
+    // {
+    //     id: "documentation-tutorial",
+    //     name: "文档教程",
+    //     children: [
+    //         {
+    //             imgUrl: "devopsResorce.png",
+    //             name: "开发者资源站",
+    //             des: "开发者资源站",
+    //             url: "https://hsm-os.pages.hollysys.net/docs/",
+    //         },
+    //         {
+    //             imgUrl: "docs.jpeg",
+    //             name: "编码规范文档",
+    //             des: "编码规范文档",
+    //             url: "https://hsm-os.pages.hollysys.net/hsm-spec/code-style-guide",
+    //         },
+    //         {
+    //             imgUrl: "devops.jpeg",
+    //             name: "devops规范文档",
+    //             des: "devops规范文档",
+    //             url: "https://hsm-os.pages.hollysys.net/hsm-spec/devops-spec",
+    //         },
+    //         {
+    //             imgUrl: "set.jpeg",
+    //             name: "常用镜像站配置文档",
+    //             des: "常用镜像站配置文档",
+    //             url: "https://hsm-os.pages.hollysys.net/hsm-spec/devops-spec/devops/mirrors.html",
+    //         }
 
-        ],
-    },
+    //     ],
+    // },
 
 ]

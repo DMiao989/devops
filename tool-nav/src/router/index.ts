@@ -15,13 +15,13 @@ const router = createRouter({
 
 // 全局前置守卫 这里可以加入用户登录判断
 router.beforeEach((to, from, next) => {
-    console.log(to, from)
+    // console.log(to, from)
     next()
 })
 
 // 全局后置守卫，这里可以加入改变页面标题等操作
 router.afterEach((to, from) => {
-    console.log(to, from)
+    // console.log(to, from)
 })
 
 export default router
