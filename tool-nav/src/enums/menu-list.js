@@ -45,68 +45,19 @@ export const menuList = [
         icon: markRaw(Notebook),
         name: "文档教程",
         isOpen: true,
-        // children: [
-        //     {
-        //         index: "ntp",
-        //         groupName: "NTP服务器",
-        //         isOpen: true,
-        //     },
-        //     {
-        //         index: "dns",
-        //         groupName: "DNS服务器",
-        //         isOpen: true,
-        //     },
-        //     {
-        //         index: "maven",
-        //         groupName: "maven镜像站",
-        //         isOpen: false,
-        //     },
-        //     {
-        //         index: "golang",
-        //         groupName: "golang镜像站",
-        //         isOpen: true,
-        //     },
-        //     {
-        //         index: "npm",
-        //         groupName: "npm镜像站",
-        //         isOpen: false,
-        //     },
-        //     {
-        //         index: "operating-version",
-        //         groupName: "操作系统版本说明",
-        //         isOpen: true,
-        //     },
-        //     {
-        //         index: "ubuntu",
-        //         groupName: "ubuntu镜像站",
-        //         isOpen: true,
-        //     },
-        //     {
-        //         index: "debian",
-        //         groupName: "debian镜像站",
-        //         isOpen: true,
-        //     },
-        //     {
-        //         index: "cent-os",
-        //         groupName: "CentOS",
-        //         isOpen: true,
-        //     },
-        //     {
-        //         index: "alpine",
-        //         groupName: "Alpine",
-        //         isOpen: true,
-        //     },
-        //     {
-        //         index: "yarn",
-        //         groupName: "yarn",
-        //         isOpen: true,
-        //     },
-        //     {
-        //         index: "pnpm",
-        //         groupName: "pnpm",
-        //         isOpen: true,
-        //     },
-        // ],
+        children: [
+            {
+                index: "img-resources",
+                groupName: "常用镜像资源文档",
+                isOpen: true,
+            },
+            {
+                index: "other-doc",
+                groupName: "其他类型文档",
+                isOpen: true,
+            }
+        ]
+
     },
     {
         index: "about-site",
@@ -114,4 +65,14 @@ export const menuList = [
         name: "关于本站",
         isOpen: true,
     },
+]
+
+export const mdList = [
+    {
+        mdUrl: "常用镜像资源文档",
+        route: "img-resources"
+    }, {
+        mdUrl: "其它文档",
+        route: "other-doc"
+    }
 ]

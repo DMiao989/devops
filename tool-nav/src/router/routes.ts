@@ -21,13 +21,13 @@ const routes = [
             //     // 文档教程,动态字段以冒号开始
             //     path: "/documentation/:id",
             //     name: "documentation",
-            //     component: () => import('../views/ele.vue')
+            //     component: () => import('../views/documentation.vue')
             // }
         ]
     },
 
     {
-        path: '/documentation',
+        path: '/documentation/:id',
         name: "documentation",
         title: "文档教程",
         component: () => import('../views/documentation.vue'),

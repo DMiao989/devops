@@ -22,8 +22,10 @@
 
 <script setup>
 import { marked } from "marked";
-import { nextTick, title } from "process";
-import { onMounted, ref } from "vue";
+import { onMounted, ref, watchEffect, computed, nextTick } from "vue";
+import { useRouter, useRoute } from "vue-router";
+import { mdList } from "@/enums/menu-list.js";
+
 const input = ref(null);
 const text = ref("");
 const anchors = ref([]);
@@ -31,11 +33,15 @@ const titleList = ref([]);
 const tagList = ref([]);
 const elementList = ref([]);
 const isClicked = ref(false);
+const routes = useRoute();
+const mdModule = import.meta.glob("/src/assets/markdown/*.md", {
+  as: "raw",
+});
 // 处理自定义锚点
 const handleAnchor = () => {
   // 获取界面中标题元素
   anchors.value = document.querySelectorAll("h1,h2,h3,h4,h5,h6");
-
+  console.log(anchors.value);
   // 获取标题名称,过滤掉空
   titleList.value = Array.from(anchors.value).filter((item) =>
     item.innerText.trim()
@@ -73,15 +79,25 @@ const handleClick = (el) => {
       item.innerText === el.title &&
       tagList.value.indexOf(item.tagName) + 1 === el.tagName
   );
-
   // 锚点到 anchorEle[0]元素
   anchorEle[0].scrollIntoView({ behavior: "smooth" });
 };
-onMounted(async () => {
-  input.value = await import("@/assets/markdown/markdown.md?raw");
-  text.value = marked(input.value.default);
-  nextTick(() => {
-    handleAnchor();
+
+// 根据路由判断当前组件应该引入的md文档；
+// 所有md文档都共用一个组件
+const currentRoute = computed(() => {
+  return routes.fullPath.split("/")[2]; //获取当前的route
+});
+watchEffect(() => {
+  mdList.forEach(async (item) => {
+    if (item.route === currentRoute.value) {
+      text.value = marked(
+        await mdModule[`/src/assets/markdown/${item.mdUrl}.md`]()
+      );
+      nextTick(() => {
+        handleAnchor();
+      });
+    }
   });
 });
 </script>
@@ -89,7 +105,6 @@ onMounted(async () => {
 <style scoped lang="scss">
 .mark-container {
   display: flex;
-
   .menu-con {
     background-color: #fafafa;
     overflow: auto;
